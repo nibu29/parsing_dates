@@ -49,7 +49,8 @@ public class MainClass {
 			for(int i=0;i<thrds;i++) {
 				cns[i]=DriverManager.getConnection(pgdb);
 				sms[i]=cns[i].createStatement();
-				rss[i]=sms[i].executeQuery("select ref,createddatetime,body from report where createddatetime is null and ref > "+markerrefs[i]+" and ref <="+markerrefs[i+1]);
+				rss[i]=sms[i].executeQuery("select ref,createddatetime,body from report where createddatetime is null and ref > "+markerrefs[i]+" "
+						+ "and ref <="+markerrefs[i+1]);
 				hb[i]= new handle_bodies(rss[i]);
 			}
 			
